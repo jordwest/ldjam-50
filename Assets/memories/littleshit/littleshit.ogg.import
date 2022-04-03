@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/littleshit.ogg-890b60be9b1686daa665b339604469c4.oggstr"
+
+[deps]
+
+source_file="res://Assets/memories/littleshit/littleshit.ogg"
+dest_files=[ "res://.import/littleshit.ogg-890b60be9b1686daa665b339604469c4.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

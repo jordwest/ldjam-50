@@ -1,0 +1,15 @@
+[gd_resource type="Resource" load_steps=2 format=2]
+
+[ext_resource path="res://Resources/Skills/SkillData.gd" type="Script" id=1]
+
+[resource]
+script = ExtResource( 1 )
+slot = 0
+charge_time = 3.0
+max_charges = 1.0
+duration = 0.18
+title = "Dash 2"
+description = "Dash further"
+category = "dash"
+level = 0
+speed_multiplier = 1.0

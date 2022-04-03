@@ -1,0 +1,12 @@
+[gd_resource type="Resource" load_steps=5 format=2]
+
+[ext_resource path="res://Resources/Memories/Memory.gd" type="Script" id=1]
+[ext_resource path="res://Assets/memories/noise/noise1.png" type="Texture" id=2]
+[ext_resource path="res://Assets/memories/noise/radionoise.ogg" type="AudioStream" id=3]
+[ext_resource path="res://Assets/memories/noise/noise2.png" type="Texture" id=4]
+
+[resource]
+script = ExtResource( 1 )
+image_sequence = [ ExtResource( 2 ), ExtResource( 4 ), ExtResource( 2 ), ExtResource( 4 ), ExtResource( 2 ), ExtResource( 4 ), ExtResource( 2 ), ExtResource( 4 ), ExtResource( 2 ), ExtResource( 4 ), ExtResource( 2 ), ExtResource( 4 ), ExtResource( 2 ), ExtResource( 4 ), ExtResource( 2 ), ExtResource( 4 ), ExtResource( 2 ), ExtResource( 4 ), ExtResource( 2 ), ExtResource( 4 ) ]
+audio = ExtResource( 3 )
+fps = 4

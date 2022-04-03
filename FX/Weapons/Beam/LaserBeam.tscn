@@ -1,0 +1,55 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://FX/Weapons/Beam/LaserBeam.gd" type="Script" id=1]
+
+[sub_resource type="Gradient" id=3]
+colors = PoolColorArray( 1, 1, 1, 1, 0, 0, 0, 1 )
+
+[sub_resource type="Curve" id=2]
+_data = [ Vector2( 0.0191327, 1 ), 0.0, 0.0, 0, 0, Vector2( 1, 0.0720721 ), 0.0, 0.0, 0, 0 ]
+
+[node name="LaserBeam" type="Node2D"]
+script = ExtResource( 1 )
+beam_color = Color( 1, 0.619608, 0.972549, 1 )
+
+[node name="LaserParticles1" type="CPUParticles2D" parent="."]
+position = Vector2( 247, 137 )
+rotation = 0.491529
+amount = 40
+lifetime = 0.7
+emission_shape = 2
+emission_rect_extents = Vector2( 80, 1 )
+direction = Vector2( 0, -1 )
+spread = 85.29
+gravity = Vector2( 0, 0 )
+initial_velocity = 20.93
+initial_velocity_random = 0.24
+color = Color( 0.678431, 0.831373, 0.854902, 1 )
+color_ramp = SubResource( 3 )
+
+[node name="LaserParticles2" type="CPUParticles2D" parent="."]
+position = Vector2( 244, 141 )
+rotation = -2.59889
+amount = 40
+lifetime = 0.7
+emission_shape = 2
+emission_rect_extents = Vector2( 80, 1 )
+direction = Vector2( 0, -1 )
+spread = 85.29
+gravity = Vector2( 0, 0 )
+initial_velocity = 20.93
+initial_velocity_random = 0.24
+color = Color( 0.678431, 0.831373, 0.854902, 1 )
+color_ramp = SubResource( 3 )
+
+[node name="BeamLine" type="Line2D" parent="."]
+points = PoolVector2Array( 324, 184, 160, 90 )
+width_curve = SubResource( 2 )
+default_color = Color( 1, 0.619608, 0.972549, 1 )
+
+[node name="Tween" type="Tween" parent="."]
+
+[node name="ParticleEmissionTimer" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="timeout" from="ParticleEmissionTimer" to="." method="_on_ParticleEmissionTimer_timeout"]

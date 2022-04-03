@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/leaf.ogg-599a20471043cb296315720249db1c53.oggstr"
+
+[deps]
+
+source_file="res://Assets/memories/leaf/leaf.ogg"
+dest_files=[ "res://.import/leaf.ogg-599a20471043cb296315720249db1c53.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

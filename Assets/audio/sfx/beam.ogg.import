@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/beam.ogg-17c8d66f2314eca01e11f362034c1b07.oggstr"
+
+[deps]
+
+source_file="res://Assets/audio/sfx/beam.ogg"
+dest_files=[ "res://.import/beam.ogg-17c8d66f2314eca01e11f362034c1b07.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

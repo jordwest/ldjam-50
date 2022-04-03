@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/radionoise.ogg-1c9c879fb4f118204e58bbd7a7d57499.oggstr"
+
+[deps]
+
+source_file="res://Assets/memories/noise/radionoise.ogg"
+dest_files=[ "res://.import/radionoise.ogg-1c9c879fb4f118204e58bbd7a7d57499.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

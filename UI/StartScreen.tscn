@@ -1,0 +1,97 @@
+[gd_scene load_steps=12 format=2]
+
+[ext_resource path="res://Assets/fonts/JosefinSans-Regular.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://UI/StartScreen.gd" type="Script" id=2]
+[ext_resource path="res://Resources/UiState.tres" type="Resource" id=3]
+
+[sub_resource type="StyleBoxEmpty" id=9]
+
+[sub_resource type="StyleBoxFlat" id=10]
+bg_color = Color( 0.137255, 0.137255, 0.137255, 1 )
+
+[sub_resource type="StyleBoxEmpty" id=11]
+
+[sub_resource type="StyleBoxFlat" id=12]
+bg_color = Color( 0.054902, 0.054902, 0.054902, 1 )
+
+[sub_resource type="Theme" id=6]
+Button/styles/focus = SubResource( 9 )
+Button/styles/hover = SubResource( 10 )
+Button/styles/normal = SubResource( 11 )
+Button/styles/pressed = SubResource( 12 )
+
+[sub_resource type="DynamicFont" id=1]
+outline_size = 1
+outline_color = Color( 0.027451, 0.027451, 0.027451, 1 )
+use_filter = true
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=7]
+size = 6
+outline_color = Color( 0.027451, 0.027451, 0.027451, 1 )
+use_filter = true
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=8]
+size = 24
+outline_size = 1
+outline_color = Color( 0.027451, 0.027451, 0.027451, 1 )
+use_filter = true
+font_data = ExtResource( 1 )
+
+[node name="StartScreen" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+rect_min_size = Vector2( 320, 180 )
+script = ExtResource( 2 )
+ui_state = ExtResource( 3 )
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 0.788235 )
+
+[node name="StartButton" type="Button" parent="."]
+margin_left = 1.0
+margin_top = 147.0
+margin_right = 320.0
+margin_bottom = 174.0
+theme = SubResource( 6 )
+custom_fonts/font = SubResource( 1 )
+text = "Start"
+
+[node name="FullscreenButton" type="Button" parent="."]
+margin_left = 1.0
+margin_top = 120.0
+margin_right = 320.0
+margin_bottom = 147.0
+theme = SubResource( 6 )
+custom_fonts/font = SubResource( 1 )
+text = "Toggle Fullscreen"
+
+[node name="Label" type="Label" parent="."]
+margin_left = 73.0
+margin_top = 65.0
+margin_right = 265.0
+margin_bottom = 120.0
+custom_colors/font_color = Color( 0.388235, 0.388235, 0.388235, 1 )
+custom_fonts/font = SubResource( 7 )
+text = "Everyone carries a shadow, and the less it is embodied in the individual’s conscious life, the blacker and denser it is. At all counts, it forms an unconscious snag, thwarting our most well-meant intentions.
+
+- Carl Jung"
+autowrap = true
+
+[node name="Label2" type="Label" parent="."]
+margin_left = 2.0
+margin_top = 12.0
+margin_right = 320.0
+margin_bottom = 45.0
+custom_colors/font_color = Color( 1, 0.0784314, 0.141176, 1 )
+custom_fonts/font = SubResource( 8 )
+text = "Between My Shadows"
+align = 1
+valign = 1
+autowrap = true
+
+[connection signal="pressed" from="StartButton" to="." method="_on_Button_pressed"]
+[connection signal="pressed" from="FullscreenButton" to="." method="_on_FullscreenButton_pressed"]

@@ -1,0 +1,15 @@
+[gd_resource type="Resource" load_steps=2 format=2]
+
+[ext_resource path="res://Resources/Skills/SkillData.gd" type="Script" id=1]
+
+[resource]
+script = ExtResource( 1 )
+slot = 3
+charge_time = 0.0
+max_charges = 0.0
+duration = 0.0
+title = "Fear"
+description = "Continue to fight your shadows"
+category = "fear"
+level = 0
+speed_multiplier = 1.0

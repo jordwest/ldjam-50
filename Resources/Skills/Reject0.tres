@@ -1,0 +1,15 @@
+[gd_resource type="Resource" load_steps=2 format=2]
+
+[ext_resource path="res://Resources/Skills/SkillData.gd" type="Script" id=1]
+
+[resource]
+script = ExtResource( 1 )
+slot = 1
+charge_time = 2.0
+max_charges = 2.0
+duration = 0.4
+title = "Reject"
+description = "Forces away shadows directly in front of you in a small arc. Recharges every 2 seconds. 2 charges."
+category = "reject"
+level = 0
+speed_multiplier = 1.0

@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/shadow_death2.ogg-f5d44cb038a302a07a872c1b72a9a147.oggstr"
+
+[deps]
+
+source_file="res://Assets/audio/sfx/shadow_death2.ogg"
+dest_files=[ "res://.import/shadow_death2.ogg-f5d44cb038a302a07a872c1b72a9a147.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

@@ -1,0 +1,10 @@
+[gd_resource type="Resource" load_steps=5 format=2]
+
+[ext_resource path="res://Resources/SfxSet.gd" type="Script" id=1]
+[ext_resource path="res://Assets/audio/sfx/shadow_death1.ogg" type="AudioStream" id=2]
+[ext_resource path="res://Assets/audio/sfx/shadow_death2.ogg" type="AudioStream" id=3]
+[ext_resource path="res://Assets/audio/sfx/shadow_death3.ogg" type="AudioStream" id=4]
+
+[resource]
+script = ExtResource( 1 )
+sounds = [ ExtResource( 2 ), ExtResource( 3 ), ExtResource( 4 ) ]

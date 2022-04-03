@@ -1,0 +1,75 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://UI/Typography/Title5.tres" type="DynamicFont" id=1]
+[ext_resource path="res://UI/Typography/Title2.tres" type="DynamicFont" id=2]
+[ext_resource path="res://UI/UpgradeButton.gd" type="Script" id=3]
+[ext_resource path="res://Resources/Skills/Beam0.tres" type="Resource" id=4]
+[ext_resource path="res://Assets/fonts/JosefinSans-Medium.ttf" type="DynamicFontData" id=5]
+[ext_resource path="res://Resources/UiState.tres" type="Resource" id=6]
+[ext_resource path="res://Resources/Skills.tres" type="Resource" id=7]
+
+[sub_resource type="DynamicFont" id=1]
+size = 6
+use_filter = true
+font_data = ExtResource( 5 )
+
+[node name="UpgradeButton" type="Button"]
+margin_right = 136.0
+margin_bottom = 86.0
+size_flags_horizontal = 3
+script = ExtResource( 3 )
+skill = ExtResource( 4 )
+ui_state = ExtResource( 6 )
+skills = ExtResource( 7 )
+title_text = "Beam"
+info_text = "Left mouse button fires a focused beam"
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+custom_constants/margin_right = 8
+custom_constants/margin_top = 8
+custom_constants/margin_left = 8
+custom_constants/margin_bottom = 8
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+margin_left = 8.0
+margin_top = 8.0
+margin_right = 128.0
+margin_bottom = 78.0
+custom_constants/separation = 8
+
+[node name="Title" type="Label" parent="MarginContainer/VBoxContainer"]
+margin_right = 120.0
+margin_bottom = 19.0
+size_flags_horizontal = 3
+custom_colors/font_color = Color( 1, 0, 0.584314, 1 )
+custom_fonts/font = ExtResource( 2 )
+text = "Beam"
+align = 1
+valign = 1
+
+[node name="Info" type="Label" parent="MarginContainer/VBoxContainer"]
+margin_top = 31.0
+margin_right = 120.0
+margin_bottom = 50.0
+size_flags_horizontal = 3
+size_flags_vertical = 6
+custom_fonts/font = ExtResource( 1 )
+text = "Left mouse button fires a focused beam"
+align = 1
+valign = 1
+autowrap = true
+
+[node name="Slot" type="Label" parent="MarginContainer/VBoxContainer"]
+margin_top = 63.0
+margin_right = 120.0
+margin_bottom = 70.0
+custom_colors/font_color = Color( 1, 0.392157, 0.392157, 1 )
+custom_fonts/font = SubResource( 1 )
+text = "PRIMARY"
+align = 1
+valign = 1
+
+[connection signal="pressed" from="." to="." method="_on_UpgradeButton_pressed"]

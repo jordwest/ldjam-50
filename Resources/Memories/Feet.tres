@@ -1,0 +1,22 @@
+[gd_resource type="Resource" load_steps=15 format=2]
+
+[ext_resource path="res://Resources/Memories/Memory.gd" type="Script" id=1]
+[ext_resource path="res://Assets/memories/feet/0005.jpg" type="Texture" id=2]
+[ext_resource path="res://Assets/memories/feet/0011.jpg" type="Texture" id=3]
+[ext_resource path="res://Assets/memories/feet/0012.jpg" type="Texture" id=4]
+[ext_resource path="res://Assets/memories/feet/0008.jpg" type="Texture" id=5]
+[ext_resource path="res://Assets/memories/feet/0009.jpg" type="Texture" id=6]
+[ext_resource path="res://Assets/memories/feet/0010.jpg" type="Texture" id=7]
+[ext_resource path="res://Assets/memories/feet/0004.jpg" type="Texture" id=8]
+[ext_resource path="res://Assets/memories/feet/0007.jpg" type="Texture" id=9]
+[ext_resource path="res://Assets/memories/feet/0003.jpg" type="Texture" id=10]
+[ext_resource path="res://Assets/memories/feet/0002.jpg" type="Texture" id=11]
+[ext_resource path="res://Assets/memories/feet/feet.ogg" type="AudioStream" id=12]
+[ext_resource path="res://Assets/memories/feet/0001.jpg" type="Texture" id=13]
+[ext_resource path="res://Assets/memories/feet/0006.jpg" type="Texture" id=14]
+
+[resource]
+script = ExtResource( 1 )
+image_sequence = [ ExtResource( 13 ), ExtResource( 11 ), ExtResource( 10 ), ExtResource( 8 ), ExtResource( 2 ), ExtResource( 14 ), ExtResource( 9 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 3 ), ExtResource( 4 ) ]
+audio = ExtResource( 12 )
+fps = 2

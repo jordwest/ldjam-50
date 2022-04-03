@@ -1,0 +1,15 @@
+[gd_resource type="Resource" load_steps=2 format=2]
+
+[ext_resource path="res://Resources/Skills/SkillData.gd" type="Script" id=1]
+
+[resource]
+script = ExtResource( 1 )
+slot = 0
+charge_time = 3.0
+max_charges = 1.0
+duration = 1.5
+title = "Run"
+description = "Press Shift to gain a 1.8x speed boost for 1.5 seconds. 3 second recharge."
+category = "run"
+level = 0
+speed_multiplier = 1.8

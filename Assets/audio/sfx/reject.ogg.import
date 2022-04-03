@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/reject.ogg-1601691d093cb512bbb2c72b528bcc96.oggstr"
+
+[deps]
+
+source_file="res://Assets/audio/sfx/reject.ogg"
+dest_files=[ "res://.import/reject.ogg-1601691d093cb512bbb2c72b528bcc96.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

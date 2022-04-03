@@ -1,0 +1,15 @@
+[gd_resource type="Resource" load_steps=2 format=2]
+
+[ext_resource path="res://Resources/Skills/SkillData.gd" type="Script" id=1]
+
+[resource]
+script = ExtResource( 1 )
+slot = 1
+charge_time = 1.0
+max_charges = 1.0
+duration = 0.25
+title = "Beam 2"
+description = "Beam charges in 1 second"
+category = "beam"
+level = 1
+speed_multiplier = 1.0

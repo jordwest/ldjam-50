@@ -1,0 +1,19 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://UI/WeaponOverlay.gd" type="Script" id=1]
+[ext_resource path="res://FX/Weapons/Beam/LaserBeam.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Resources/Skills.tres" type="Resource" id=3]
+[ext_resource path="res://Assets/reticule.png" type="Texture" id=4]
+[ext_resource path="res://Resources/UiState.tres" type="Resource" id=5]
+
+[node name="WeaponOverlay" type="Node2D"]
+script = ExtResource( 1 )
+skills = ExtResource( 3 )
+ui_state = ExtResource( 5 )
+
+[node name="LaserBeam" parent="." instance=ExtResource( 2 )]
+
+[node name="Reticule" type="Sprite" parent="."]
+visible = false
+position = Vector2( 160, 90 )
+texture = ExtResource( 4 )

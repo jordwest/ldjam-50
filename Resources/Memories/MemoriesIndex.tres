@@ -1,0 +1,12 @@
+[gd_resource type="Resource" load_steps=7 format=2]
+
+[ext_resource path="res://Resources/Memories/MemoriesIndex.gd" type="Script" id=1]
+[ext_resource path="res://Resources/Memories/LittleShit.tres" type="Resource" id=2]
+[ext_resource path="res://Resources/Memories/Leaf.tres" type="Resource" id=3]
+[ext_resource path="res://Resources/Memories/Walk.tres" type="Resource" id=4]
+[ext_resource path="res://Resources/Memories/NoisePlaceholder.tres" type="Resource" id=5]
+[ext_resource path="res://Resources/Memories/Feet.tres" type="Resource" id=6]
+
+[resource]
+script = ExtResource( 1 )
+memories = [ ExtResource( 3 ), ExtResource( 5 ), ExtResource( 2 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 4 ) ]

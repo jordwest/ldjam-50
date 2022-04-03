@@ -1,3 +1,70 @@
-[gd_scene format=2]
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://Scenes/PlayArea.tscn" type="PackedScene" id=1]
+[ext_resource path="res://UI/DeathScreen.tscn" type="PackedScene" id=2]
+[ext_resource path="res://UI/CompleteOverlay.tscn" type="PackedScene" id=3]
+[ext_resource path="res://UI/SkillSelector.tscn" type="PackedScene" id=4]
+[ext_resource path="res://UI/PauseScreen.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Game.gd" type="Script" id=6]
+[ext_resource path="res://Resources/UiState.tres" type="Resource" id=7]
+[ext_resource path="res://UI/WeaponOverlay.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Resources/PlayerEvents.tres" type="Resource" id=9]
+[ext_resource path="res://UI/StartScreen.tscn" type="PackedScene" id=10]
 
 [node name="Game" type="Node2D"]
+pause_mode = 2
+script = ExtResource( 6 )
+ui_state = ExtResource( 7 )
+player_info = ExtResource( 9 )
+
+[node name="ViewportContainer" type="ViewportContainer" parent="."]
+margin_right = 320.0
+margin_bottom = 180.0
+mouse_filter = 2
+
+[node name="Viewport" type="Viewport" parent="ViewportContainer"]
+size = Vector2( 320, 180 )
+handle_input_locally = false
+render_target_update_mode = 3
+audio_listener_enable_3d = true
+
+[node name="PlayArea" parent="ViewportContainer/Viewport" instance=ExtResource( 1 )]
+pause_mode = 1
+
+[node name="WeaponOverlayContainer" type="ViewportContainer" parent="."]
+margin_right = 320.0
+margin_bottom = 180.0
+mouse_filter = 2
+
+[node name="Viewport" type="Viewport" parent="WeaponOverlayContainer"]
+size = Vector2( 320, 180 )
+transparent_bg = true
+handle_input_locally = false
+disable_3d = true
+usage = 0
+render_target_update_mode = 3
+gui_disable_input = true
+
+[node name="WeaponOverlay" parent="WeaponOverlayContainer/Viewport" instance=ExtResource( 8 )]
+
+[node name="SkillSelector" parent="." instance=ExtResource( 4 )]
+visible = false
+margin_right = 320.0
+margin_bottom = 180.0
+
+[node name="PauseScreen" parent="." instance=ExtResource( 5 )]
+visible = false
+margin_right = 320.0
+margin_bottom = 180.0
+
+[node name="DeadScreen" parent="." instance=ExtResource( 2 )]
+visible = false
+margin_right = 320.0
+margin_bottom = 180.0
+rect_min_size = Vector2( 320, 180 )
+
+[node name="GameCompleteOverlay" parent="." instance=ExtResource( 3 )]
+visible = false
+rect_min_size = Vector2( 320, 180 )
+
+[node name="StartScreen" parent="." instance=ExtResource( 10 )]

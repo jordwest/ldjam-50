@@ -1,0 +1,10 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Systems/ShadowSpawner.gd" type="Script" id=1]
+[ext_resource path="res://Resources/PlayerEvents.tres" type="Resource" id=2]
+[ext_resource path="res://Resources/Memories/MemoriesIndex.tres" type="Resource" id=3]
+
+[node name="ShadowSpawner" type="Node"]
+script = ExtResource( 1 )
+player_info = ExtResource( 2 )
+memories_index = ExtResource( 3 )

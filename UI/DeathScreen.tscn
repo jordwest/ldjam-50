@@ -1,0 +1,261 @@
+[gd_scene load_steps=21 format=2]
+
+[ext_resource path="res://UI/Typography/Title5.tres" type="DynamicFont" id=1]
+[ext_resource path="res://UI/Typography/Title2.tres" type="DynamicFont" id=2]
+[ext_resource path="res://Assets/audio/sfx/dead.ogg" type="AudioStream" id=3]
+[ext_resource path="res://Assets/audio/sfx/dead2.ogg" type="AudioStream" id=4]
+[ext_resource path="res://Assets/fonts/JosefinSans-Regular.ttf" type="DynamicFontData" id=5]
+[ext_resource path="res://UI/DeathScreen.gd" type="Script" id=6]
+[ext_resource path="res://Resources/UiState.tres" type="Resource" id=7]
+[ext_resource path="res://Resources/PlayerEvents.tres" type="Resource" id=8]
+
+[sub_resource type="Shader" id=1]
+code = "shader_type canvas_item;
+
+uniform sampler2D noise;
+uniform float alpha: hint_range(0.0, 1.0);
+
+void fragment() {
+	float noise_val = texture(noise, UV).r;
+	COLOR.a = smoothstep(alpha, alpha - 0.01, noise_val);
+}"
+
+[sub_resource type="OpenSimplexNoise" id=3]
+seed = 40
+
+[sub_resource type="NoiseTexture" id=4]
+seamless = true
+noise = SubResource( 3 )
+
+[sub_resource type="ShaderMaterial" id=2]
+shader = SubResource( 1 )
+shader_param/alpha = 0.0
+shader_param/noise = SubResource( 4 )
+
+[sub_resource type="Animation" id=5]
+resource_name = "Appear"
+length = 3.0
+tracks/0/type = "bezier"
+tracks/0/path = NodePath("ColorRect:material:shader_param/alpha")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"points": PoolRealArray( 0.0824625, -0.25, 0, 0, 0.322353, 1, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 3 )
+}
+tracks/1/type = "bezier"
+tracks/1/path = NodePath("Label:modulate:r")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"points": PoolRealArray( 1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 1.6, 3 )
+}
+tracks/2/type = "bezier"
+tracks/2/path = NodePath("Label:modulate:g")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"points": PoolRealArray( 1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 1.6, 3 )
+}
+tracks/3/type = "bezier"
+tracks/3/path = NodePath("Label:modulate:b")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"points": PoolRealArray( 1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 1.6, 3 )
+}
+tracks/4/type = "bezier"
+tracks/4/path = NodePath("Label:modulate:a")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"points": PoolRealArray( 0, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 1.6, 3 )
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("AudioStreamPlayer:playing")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("AudioStreamPlayer2:playing")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+
+[sub_resource type="Animation" id=6]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/path = NodePath("ColorRect:material:shader_param/alpha")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"points": PoolRealArray( 0, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0 )
+}
+tracks/1/type = "bezier"
+tracks/1/path = NodePath("Label:modulate:r")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"points": PoolRealArray( 1, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0 )
+}
+tracks/2/type = "bezier"
+tracks/2/path = NodePath("Label:modulate:g")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"points": PoolRealArray( 1, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0 )
+}
+tracks/3/type = "bezier"
+tracks/3/path = NodePath("Label:modulate:b")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"points": PoolRealArray( 1, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0 )
+}
+tracks/4/type = "bezier"
+tracks/4/path = NodePath("Label:modulate:a")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"points": PoolRealArray( 1, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0 )
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("AudioStreamPlayer:playing")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ false ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("AudioStreamPlayer2:playing")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ true ]
+}
+
+[sub_resource type="StyleBoxEmpty" id=7]
+
+[sub_resource type="StyleBoxFlat" id=8]
+bg_color = Color( 0.137255, 0.137255, 0.137255, 1 )
+
+[sub_resource type="StyleBoxEmpty" id=9]
+
+[sub_resource type="StyleBoxFlat" id=10]
+bg_color = Color( 0.054902, 0.054902, 0.054902, 1 )
+
+[sub_resource type="Theme" id=11]
+Button/styles/focus = SubResource( 7 )
+Button/styles/hover = SubResource( 8 )
+Button/styles/normal = SubResource( 9 )
+Button/styles/pressed = SubResource( 10 )
+
+[sub_resource type="DynamicFont" id=12]
+outline_size = 1
+outline_color = Color( 0.027451, 0.027451, 0.027451, 1 )
+use_filter = true
+font_data = ExtResource( 5 )
+
+[node name="DeadScreen" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 6 )
+ui_state = ExtResource( 7 )
+player_info = ExtResource( 8 )
+
+[node name="ColorRect" type="ColorRect" parent="."]
+material = SubResource( 2 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.0509804, 0, 0.0509804, 1 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/Appear = SubResource( 5 )
+anims/RESET = SubResource( 6 )
+
+[node name="Game over" type="Label" parent="."]
+margin_right = 319.0
+margin_bottom = 180.0
+custom_fonts/font = ExtResource( 2 )
+text = "GAME OVER"
+align = 1
+valign = 1
+
+[node name="Label" type="Label" parent="."]
+margin_top = 95.0
+margin_right = 319.0
+margin_bottom = 116.0
+custom_fonts/font = ExtResource( 1 )
+text = "The shadows consumed you"
+align = 1
+valign = 1
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 3 )
+
+[node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 4 )
+
+[node name="RestartButton" type="Button" parent="."]
+margin_left = 1.0
+margin_top = 130.0
+margin_right = 320.0
+margin_bottom = 157.0
+theme = SubResource( 11 )
+custom_fonts/font = SubResource( 12 )
+text = "Retry"
+
+[connection signal="pressed" from="RestartButton" to="." method="_on_RestartButton_pressed"]

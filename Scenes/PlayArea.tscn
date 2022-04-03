@@ -1,0 +1,141 @@
+[gd_scene load_steps=24 format=2]
+
+[ext_resource path="res://Assets/tile.png" type="Texture" id=1]
+[ext_resource path="res://Systems/ShadowSpawner.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Actors/Player.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Assets/audio/bgm/ambience.ogg" type="AudioStream" id=4]
+[ext_resource path="res://Systems/SkillCharge.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Systems/PauseManager.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Scenes/Floor.gd" type="Script" id=7]
+[ext_resource path="res://Systems/ActionAudio.gd" type="Script" id=8]
+[ext_resource path="res://Systems/ActionAudio.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Assets/audio/bgm/theyclose.ogg" type="AudioStream" id=10]
+[ext_resource path="res://Systems/CreepySound.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Assets/audio/sfx/surprise.ogg" type="AudioStream" id=12]
+[ext_resource path="res://Assets/audio/bgm/completed.ogg" type="AudioStream" id=13]
+[ext_resource path="res://Systems/AmbienceManager.tscn" type="PackedScene" id=14]
+[ext_resource path="res://Systems/DebugSystem.tscn" type="PackedScene" id=15]
+[ext_resource path="res://Resources/PlayerEvents.tres" type="Resource" id=17]
+[ext_resource path="res://Resources/CompleteSky.tres" type="ProceduralSky" id=18]
+[ext_resource path="res://Scenes/PlayArea.gd" type="Script" id=19]
+
+[sub_resource type="SpatialMaterial" id=2]
+albedo_texture = ExtResource( 1 )
+uv1_scale = Vector3( 40, 40, 1 )
+
+[sub_resource type="PlaneMesh" id=1]
+material = SubResource( 2 )
+size = Vector2( 50, 50 )
+
+[sub_resource type="Environment" id=3]
+background_sky = ExtResource( 18 )
+ambient_light_color = Color( 0.0431373, 0.0666667, 0.435294, 1 )
+ambient_light_energy = 0.0
+
+[sub_resource type="Animation" id=4]
+resource_name = "Complete Game"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("WorldEnvironment:environment:background_mode")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 0, 2 ]
+}
+
+[sub_resource type="Animation" id=5]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("WorldEnvironment:environment:background_mode")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0 ]
+}
+
+[node name="PlayArea" type="Spatial"]
+script = ExtResource( 19 )
+player_info = ExtResource( 17 )
+
+[node name="Floor" type="MeshInstance" parent="."]
+mesh = SubResource( 1 )
+material/0 = null
+script = ExtResource( 7 )
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource( 3 )
+
+[node name="Player" parent="." instance=ExtResource( 3 )]
+
+[node name="Systems" type="Node" parent="."]
+
+[node name="SkillCharge" parent="Systems" instance=ExtResource( 5 )]
+
+[node name="PauseManager" parent="Systems" instance=ExtResource( 6 )]
+
+[node name="ShadowSpawner" parent="Systems" instance=ExtResource( 2 )]
+spawn_container = NodePath("../../Shadows")
+gem_container = NodePath("../../Gems")
+memory_container = NodePath("../../Memories")
+player_path = NodePath("../../Player")
+action_bgm_path = NodePath("../../BackgroundAudio/Action")
+surprise_sfx_path = NodePath("../../BackgroundAudio/Surpriseeeee")
+
+[node name="CreepyAudio" parent="Systems" instance=ExtResource( 11 )]
+player_path = NodePath("../../Player")
+creepy_sound = NodePath("../../BackgroundAudio/CreepyClose")
+shadows_container = NodePath("../../Shadows")
+
+[node name="AmbienceManager" parent="Systems" instance=ExtResource( 14 )]
+completion_stream = NodePath("../../BackgroundAudio/CompleteMusic")
+ambience_stream = NodePath("../../BackgroundAudio/Ambience")
+action_stream = NodePath("../../BackgroundAudio/Action")
+
+[node name="DebugSystem" parent="Systems" instance=ExtResource( 15 )]
+enabled = false
+
+[node name="Shadows" type="Spatial" parent="."]
+
+[node name="Memories" type="Spatial" parent="."]
+
+[node name="Gems" type="Spatial" parent="."]
+
+[node name="BackgroundAudio" type="Node" parent="."]
+pause_mode = 2
+
+[node name="Ambience" type="AudioStreamPlayer" parent="BackgroundAudio"]
+stream = ExtResource( 4 )
+autoplay = true
+bus = "Ambience"
+
+[node name="Action" parent="BackgroundAudio" instance=ExtResource( 9 )]
+bus = "Action"
+script = ExtResource( 8 )
+
+[node name="CreepyClose" type="AudioStreamPlayer" parent="BackgroundAudio"]
+stream = ExtResource( 10 )
+volume_db = -50.0
+autoplay = true
+
+[node name="Surpriseeeee" type="AudioStreamPlayer" parent="BackgroundAudio"]
+stream = ExtResource( 12 )
+
+[node name="CompleteMusic" type="AudioStreamPlayer" parent="BackgroundAudio"]
+stream = ExtResource( 13 )
+bus = "Ambience"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+"anims/Complete Game" = SubResource( 4 )
+anims/RESET = SubResource( 5 )
+
+[editable path="Player"]
