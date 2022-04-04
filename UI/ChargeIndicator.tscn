@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Assets/icons/charge.png" type="Texture" id=1]
+[ext_resource path="res://UI/ChargeIndicator.gd" type="Script" id=2]
+
+[node name="ChargeIndicator" type="Control"]
+margin_right = 8.0
+margin_bottom = 16.0
+rect_min_size = Vector2( 8, 16 )
+script = ExtResource( 2 )
+
+[node name="Sprite" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+offset = Vector2( 4, 8 )
+hframes = 6

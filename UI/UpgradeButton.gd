@@ -38,8 +38,8 @@ func get_title_text():
 
 func set_info_text(v):
 	if not is_inside_tree(): yield(self, 'ready')
-	
 	$MarginContainer/VBoxContainer/Info.text = v
+	
 func get_info_text():
 	return $MarginContainer/VBoxContainer/Info.text
 

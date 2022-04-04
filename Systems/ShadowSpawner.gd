@@ -78,7 +78,7 @@ func _on_memory_complete(memory):
 			auto_spawn = true
 	else:
 		get_node(action_bgm_path).fade_in()
-		var spawn_count = player_info.memories_completed
+		var spawn_count = floor(player_info.memories_completed * 1.8)
 		var angle_between = 360 / spawn_count
 		var angle = rand_range(0, 360)
 		
