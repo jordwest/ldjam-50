@@ -71,6 +71,7 @@ func _unhandled_input(event):
 		if captured_by_memory:
 			return
 		
+		print("Mouse moved ", event.relative.x, ", ", event.relative.y)
 		player.rotate_y(-event.relative.x * mouse_sensitivity)
 		var pivot: Spatial = player.get_node("Pivot")
 		pivot.rotate_x(-event.relative.y * mouse_sensitivity)

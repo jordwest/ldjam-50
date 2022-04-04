@@ -9,6 +9,8 @@ func _ready():
 	player_info.connect("game_complete", self, "_on_game_complete")
 
 func _process(delta):
+	var paused = get_tree().paused
+	var screen = ui_state.screen
 	$PauseScreen.visible = get_tree().paused and ui_state.screen == null
 
 func _ui_state_changed():
